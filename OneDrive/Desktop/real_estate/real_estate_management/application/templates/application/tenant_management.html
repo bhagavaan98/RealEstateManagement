@@ -1,0 +1,29 @@
+{% extends 'application/base.html' %}
+
+{% block title_block %}
+Tenant Management
+{% endblock %}
+
+{% block body_block %}
+<div align="center">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Document Proofs</th>
+                <th>Show</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in tenants %}
+                <tr>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.address }}</td>
+                    <td>{{ i.document_proofs }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

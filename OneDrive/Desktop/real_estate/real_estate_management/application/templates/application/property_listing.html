@@ -1,0 +1,35 @@
+{% extends 'application/base.html' %}
+
+{% block title_block %}
+    Property Listing
+{% endblock %}
+
+{% block body_block %}
+<div align="center">
+    <h2>Property Listing</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Property Name</th>
+                <th>Address</th>
+                <th>Location</th>
+                <th>Features</th>
+                <th>Show</th> 
+            </tr>
+        </thead>
+        <tbody>
+            {% for property in properties %}
+                <tr>
+                    <td>{{ property.name }}</td>
+                    <td>{{ property.address }}</td>
+                    <td>{{ property.location }}</td>
+                    <td>{{ property.features }}</td>
+                    <td>{{ property.show }}</td> 
+                    <td><a href="{% url 'unit_detail' id=property.id%}" class="btn btn-primary">features</a></td>
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

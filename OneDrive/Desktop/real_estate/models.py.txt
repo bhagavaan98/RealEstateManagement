@@ -1,0 +1,25 @@
+models.py
+from django.db import models
+from django.contrib.auth.models import User
+
+class TenantDetails(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    address = models.TextField()
+    DOCUMENT_CHOICES = [
+        ('aadhar', 'Aadhar Card'),
+        ('pancard', 'PAN Card'),
+        ('passport', 'Passport'),
+    ]
+    document_proofs = models.CharField(max_length=10, choices=DOCUMENT_CHOICES)
+    document_image = models.FileField(null=True, upload_to='tenant_documents/')
+
+views.py
+@login_required
+def view_tenant_details(request):
+    try:
+        tenant_details = TenantDetails.objects.get(user=request.user)
+        return render(request, 'tenant_details.html', {'tenant_details': tenant_details})
+    except TenantDetails.DoesNotExist:
+        # If the details are not found, you may redirect the user to a form to fill them out
+        return render(request, 'tenant_details_form.html')

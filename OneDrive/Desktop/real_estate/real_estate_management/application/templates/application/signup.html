@@ -1,0 +1,15 @@
+{% extends "application/base.html" %}
+{% block title_block %}
+<title>signup form</title>
+{% endblock %}
+
+{% block body_block %}
+<div align="center">
+    <h1>Please SignUp</h1>
+    <form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input class="btn btn-primary" type="submit" value="SignUp">
+</form>
+</div>
+{% endblock %}

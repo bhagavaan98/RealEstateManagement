@@ -1,0 +1,16 @@
+{% extends "application/base.html" %}
+{% block title_block %}
+signup form
+{% endblock %}
+
+{% block body_block %}
+<div>
+  <h2>Lease Details</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save Lease Details</button>
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'application/base.html' %}
+
+{% block title_block %}
+    Unit Details
+{% endblock %}
+
+{% block body_block %}
+<div align="center">
+    <h2>Unit Details</h2>
+    <ul>
+        <li><strong>Property Name:</strong> {{ data.property_id.name }}</li>
+        <li><strong>Rent Cost:</strong> ${{ data.rent_cost }}</li>
+        <li><strong>Bedroom Type:</strong> {{ data.bedroom_type }}</li>
+
+    </ul>
+    <a class="btn btn-primary" href="{% url 'property_listing' %}">Back to Property Details</a>   &nbsp;&nbsp;  <a class="btn btn-primary" href="{% url 'lease' %}">go to lease Details</a>
+
+</div>
+{% endblock %}

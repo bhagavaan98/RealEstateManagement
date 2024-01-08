@@ -1,0 +1,16 @@
+{% extends 'application/base.html' %}
+
+{% block title_block %}
+
+{% endblock %}
+
+{% block body_block %}
+<div align="center">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Tenant</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "application/base.html" %}
+{% block title_block %}
+Aspirant details
+{% endblock %}
+
+{% block body_block %}
+<div align="center">
+    <h1>Please Login</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input class="btn btn-primary" type="submit" value="login">
+    </form>
+</div>
+
+{% endblock %}
